@@ -17,7 +17,7 @@ persisted in some storage.
 
 ```php
 $storage = new FileJsonStorage('events.json');
-$event = new SimpleEvent('user', 1, 'write','post', 5, ['title' => 'first post']);
+$event = new SimpleBiEvent('user', 1, 'write','post', 5, ['title' => 'first post']);
 $storage->store($event);
 ```
 
@@ -49,7 +49,7 @@ $pdo = new PDO($dsn, $user, $password);
 $pdo ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $storage = new PDOStorage($pdo, 'events');
-$event = new SimpleEvent('user', 1, 'write', 'post', 5, ['title' => 'first post']);
+$event = new SimpleBiEvent('user', 1, 'write', 'post', 5, ['title' => 'first post']);
 $storage->store($event);
 ```
 
