@@ -1,8 +1,13 @@
 sudo: false
 language: php
+services:
+  - mysql
 php:
   - 5.6
 install:
   - composer install
+before_script:
+  - mysql -e 'create database test;'
+  - mysql -e 'CREATE TABLE `test`.`events` (`id` int(10) unsigned NOT NULL AUTO_INCREMENT,`actor` varchar(255) NOT NULL DEFAULT '',`actor_id` int(10) unsigned NOT NULL,`action` varchar(10) DEFAULT '',`subject` varchar(255) DEFAULT NULL,`subject_id` int(10) unsigned DEFAULT NULL,`meta` text,`created_at` datetime NOT NULL,PRIMARY KEY (`id`)) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;'
 script:
   - phpunit
