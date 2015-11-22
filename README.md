@@ -53,3 +53,6 @@ $event = new SimpleEvent('user', 1, 'write','post', 5);
 $storage->store($event);
 ```
 
+#### MemoryStorage
+
+For test environment
