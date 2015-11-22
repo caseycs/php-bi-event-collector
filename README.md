@@ -8,7 +8,7 @@ Simple interface to store PHP application events. Multiple storages support.
 
 * PHP 5.6
 
-## Usage example
+## Usage examples
 
 #### FileJsonStorage
 
@@ -49,10 +49,48 @@ $pdo = new PDO($dsn, $user, $password);
 $pdo ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $storage = new PDOStorage($pdo, 'events');
-$event = new SimpleEvent('user', 1, 'write','post', 5, ['title' => 'first post']);
+$event = new SimpleEvent('user', 1, 'write', 'post', 5, ['title' => 'first post']);
 $storage->store($event);
 ```
 
 #### MemoryStorage
 
 For test environment
+
+## Advanced usage
+
+Use `EventCollectorInterface` in your DI container and define your own event classes using `EventInterface`, for example:
+
+```php
+class UserLeftFeedbackBiEvent extends SimpleBiEvent implements BiEventInterface
+{
+    public function __construct($userId, $feedbackText)
+    {
+        $this->createdAt = new DateTime;
+        $this->actor = 'user';
+        $this->actorId = $userId;
+        $this->action = 'createFeedback;
+    }
+    
+}
+```
+
+or even more detailed:
+
+```php
+class UserLeftFeedbackBiEvent extends SimpleBiEvent implements BiEventInterface
+{
+    public function __construct($userId, $feedbackId, $feedbackText)
+    {
+        $this->createdAt = new DateTime;
+        $this->actor = 'user';
+        $this->actorId = $userId;
+        $this->action = 'create';
+        $this->subject = 'feedback';
+        $this->subjectId = $feedbackId;
+    }
+    
+}
+```
+
+Define your own DSL!
