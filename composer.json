@@ -1,0 +1,21 @@
+{
+    "name": "iliakondrashov/php-event-collector",
+    "authors": [
+        {
+            "name": "Ilia Kondrashov",
+            "email": "caseycs@gmail.com"
+        }
+    ],
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "EventCollector\\": "app/"
+        }
+    },
+    "require-dev": {
+        "raveren/kint": "~1.0",
+        "phpunit/phpunit": "~5.0",
+        "mockery/mockery": "0.9.*"
+    }
+}
