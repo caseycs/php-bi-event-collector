@@ -1,6 +1,8 @@
 <?php
 namespace EventCollector\Storage;
 
+use EventCollector\EventInterface;
+use EventCollector\EventStorageInterface;
 use PDO;
 use PDOStatement;
 
@@ -31,11 +33,17 @@ class PDOStorage implements EventStorageInterface
         $this->table = $table;
     }
 
+    /**
+     * @param EventInterface $event
+     */
     public function store(EventInterface $event)
     {
-        $sql = sprintf('INSERT INTO %s SET actor = :actor, actor_id = :actor_id, action = :action,
-          subject = :subject, subject_id = :subject_id, created_at = :created_at', $this->table);
-        $this->statement = $this->pdo->prepare($sql);
+        if ($this->statement === null) {
+            $sql = 'INSERT INTO %s SET actor = :actor, actor_id = :actor_id, action = :action,
+              subject = :subject, subject_id = :subject_id, meta = :meta, created_at = :created_at';
+            $sql = sprintf($sql, $this->table);
+            $this->statement = $this->pdo->prepare($sql);
+        }
 
         $this->statement->bindValue('actor', $event->getActor());
         $this->statement->bindValue('actor_id', $event->getActorId());
@@ -43,7 +51,8 @@ class PDOStorage implements EventStorageInterface
         $this->statement->bindValue('subject', $event->getSubject());
         $this->statement->bindValue('subject_id', $event->getSubjectId());
         $this->statement->bindValue('created_at', $event->getCreatedAt()->format('Y-m-d H:i:s'));
+        $this->statement->bindValue('meta', json_encode($event->getMeta()));
 
-        $this->pdo->exec($this->statement);
+        $this->statement->execute();
     }
 }

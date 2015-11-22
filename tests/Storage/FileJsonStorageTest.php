@@ -16,7 +16,7 @@ class FileJsonStorageTest extends PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->path = realpath(__DIR__ . '/../../') . '/events.json';
+        $this->path = realpath(__DIR__ . '/../') . '/events.json';
         if (is_file($this->path)) {
             unlink($this->path);
         }
@@ -41,7 +41,7 @@ class FileJsonStorageTest extends PHPUnit_Framework_TestCase
         $event = json_decode($events[0], true);
         unset($event['createdAt']);
 
-        $event = [
+        $eventExpected = [
             'actor' => 'user',
             'actor_id' => 1,
             'action' => 'write',
@@ -49,7 +49,7 @@ class FileJsonStorageTest extends PHPUnit_Framework_TestCase
             'subject_id' => 5,
             'meta' => ['title' => "first\nevent"]
         ];
-        $this->assertEquals($event, $event);
+        $this->assertEquals($eventExpected, $event);
     }
 
 }

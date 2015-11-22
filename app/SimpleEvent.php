@@ -115,5 +115,4 @@ class SimpleEvent implements EventInterface
     {
         return $this->meta;
     }
-
 }

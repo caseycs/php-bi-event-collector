@@ -1,6 +1,6 @@
 # EventCollector
 
-Simple interface to store you application events. Multiple storages support. 
+Simple interface to store PHP application events. Multiple storages support. 
 
 ## Requirements
 

@@ -4,7 +4,7 @@ namespace EventCollector;
 use EventCollector\Exception\StorageException;
 use Exception;
 
-class EventCollector
+class EventCollector implements EventCollectorInterface
 {
     /*
      * @var EventStorageInterface
@@ -20,7 +20,7 @@ class EventCollector
     }
 
     /**
-     * @param EventInterface $event
+     * {@inheritdoc}
      */
     public function send(EventInterface $event)
     {
