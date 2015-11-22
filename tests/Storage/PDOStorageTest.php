@@ -1,6 +1,6 @@
 <?php
-use EventCollector\SimpleEvent;
-use EventCollector\Storage\PDOStorage;
+use BiEventCollector\SimpleBiEvent;
+use BiEventCollector\Storage\PDOStorage;
 
 class PDOStorageTest extends PHPUnit_Framework_TestCase
 {
@@ -30,7 +30,7 @@ class PDOStorageTest extends PHPUnit_Framework_TestCase
 
     public function test_store()
     {
-        $eventExpected = new SimpleEvent(
+        $eventExpected = new SimpleBiEvent(
             'user',
             1,
             'write',

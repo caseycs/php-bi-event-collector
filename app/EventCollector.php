@@ -1,10 +1,10 @@
 <?php
-namespace EventCollector;
+namespace BiEventCollector;
 
-use EventCollector\Exception\StorageException;
+use BiEventCollector\Exception\StorageException;
 use Exception;
 
-class EventCollector implements EventCollectorInterface
+class EventCollector implements BiEventCollectorInterface
 {
     /*
      * @var EventStorageInterface
@@ -12,9 +12,9 @@ class EventCollector implements EventCollectorInterface
     private $eventStorage;
 
     /**
-     * @param EventStorageInterface $eventStorage
+     * @param BiEventStorageInterface $eventStorage
      */
-    public function __construct(EventStorageInterface $eventStorage)
+    public function __construct(BiEventStorageInterface $eventStorage)
     {
         $this->eventStorage = $eventStorage;
     }
@@ -22,7 +22,7 @@ class EventCollector implements EventCollectorInterface
     /**
      * {@inheritdoc}
      */
-    public function send(EventInterface $event)
+    public function send(BiEventInterface $event)
     {
         try {
             $this->eventStorage->store($event);

@@ -1,11 +1,11 @@
 <?php
-namespace EventCollector\Storage;
+namespace BiEventCollector\Storage;
 
-use EventCollector\EventInterface;
-use EventCollector\EventStorageInterface;
+use BiEventCollector\BiEventInterface;
+use BiEventCollector\BiEventStorageInterface;
 use Exception;
 
-class FileJsonStorage implements EventStorageInterface
+class FileJsonStorage implements BiEventStorageInterface
 {
     private $filePath;
 
@@ -17,7 +17,7 @@ class FileJsonStorage implements EventStorageInterface
         $this->filePath = $filePath;
     }
 
-    public function store(EventInterface $event)
+    public function store(BiEventInterface $event)
     {
         $eventArray = [
             'actor' => $event->getActor(),

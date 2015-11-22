@@ -1,5 +1,5 @@
 <?php
-namespace EventCollector\Exception;
+namespace BiEventCollector\Exception;
 
 class StorageException extends \RuntimeException
 {

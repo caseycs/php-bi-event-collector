@@ -1,6 +1,6 @@
 <?php
-use EventCollector\Storage\FileJsonStorage;
-use EventCollector\SimpleEvent;
+use BiEventCollector\Storage\FileJsonStorage;
+use BiEventCollector\SimpleBiEvent;
 
 class FileJsonStorageTest extends PHPUnit_Framework_TestCase
 {
@@ -25,7 +25,7 @@ class FileJsonStorageTest extends PHPUnit_Framework_TestCase
 
     public function test_store()
     {
-        $event = new SimpleEvent(
+        $event = new SimpleBiEvent(
             'user',
             1,
             'write',

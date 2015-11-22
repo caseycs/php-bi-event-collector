@@ -1,5 +1,5 @@
 {
-    "name": "iliakondrashov/php-event-collector",
+    "name": "iliakondrashov/php-bi-event-collector",
     "authors": [
         {
             "name": "Ilia Kondrashov",
@@ -10,7 +10,7 @@
     },
     "autoload": {
         "psr-4": {
-            "EventCollector\\": "app/"
+            "BiEventCollector\\": "app/"
         }
     },
     "require-dev": {

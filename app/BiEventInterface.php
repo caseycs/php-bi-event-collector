@@ -1,9 +1,9 @@
 <?php
-namespace EventCollector;
+namespace BiEventCollector;
 
 use DateTime;
 
-interface EventInterface
+interface BiEventInterface
 {
     /**
      * @return string

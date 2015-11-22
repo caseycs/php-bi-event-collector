@@ -1,14 +1,13 @@
 <?php
-use EventCollector\EventCollector;
-use EventCollector\EventStorageInterface;
-use EventCollector\Storage\FileJsonStorage;
-use EventCollector\SimpleEvent;
-use EventCollector\Storage\MemoryStorage;
+use BiEventCollector\EventCollector;
+use BiEventCollector\BiEventStorageInterface;
+use BiEventCollector\SimpleBiEvent;
+use BiEventCollector\Storage\MemoryStorage;
 
-class EventCollectorTest extends PHPUnit_Framework_TestCase
+class BiEventCollectorTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var MemoryStorage|EventStorageInterface
+     * @var MemoryStorage|BiEventStorageInterface
      */
     private $storage;
 
@@ -25,7 +24,7 @@ class EventCollectorTest extends PHPUnit_Framework_TestCase
 
     public function test_store()
     {
-        $event = new SimpleEvent(
+        $event = new SimpleBiEvent(
             'user',
             1,
             'write',

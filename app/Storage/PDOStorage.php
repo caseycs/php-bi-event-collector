@@ -1,12 +1,12 @@
 <?php
-namespace EventCollector\Storage;
+namespace BiEventCollector\Storage;
 
-use EventCollector\EventInterface;
-use EventCollector\EventStorageInterface;
+use BiEventCollector\BiEventInterface;
+use BiEventCollector\BiEventStorageInterface;
 use PDO;
 use PDOStatement;
 
-class PDOStorage implements EventStorageInterface
+class PDOStorage implements BiEventStorageInterface
 {
     /**
      * @var PDO
@@ -34,9 +34,9 @@ class PDOStorage implements EventStorageInterface
     }
 
     /**
-     * @param EventInterface $event
+     * @param BiEventInterface $event
      */
-    public function store(EventInterface $event)
+    public function store(BiEventInterface $event)
     {
         if ($this->statement === null) {
             $sql = 'INSERT INTO %s SET actor = :actor, actor_id = :actor_id, action = :action,

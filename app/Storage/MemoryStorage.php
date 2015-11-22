@@ -1,20 +1,20 @@
 <?php
-namespace EventCollector\Storage;
+namespace BiEventCollector\Storage;
 
-use EventCollector\EventInterface;
-use EventCollector\EventStorageInterface;
+use BiEventCollector\BiEventInterface;
+use BiEventCollector\BiEventStorageInterface;
 
-class MemoryStorage implements EventStorageInterface
+class MemoryStorage implements BiEventStorageInterface
 {
     private $events;
 
-    public function store(EventInterface $event)
+    public function store(BiEventInterface $event)
     {
         $this->events[] = $event;
     }
 
     /**
-     * @return EventInterface[]
+     * @return BiEventInterface[]
      */
     public function getEvents()
     {
