@@ -1,6 +1,6 @@
 # EventCollector
 
-[![Build Status](https://travis-ci.org/caseycs/php-event-collector.svg?branch=master)](https://travis-ci.org/caseycs/php-event-collector)
+[![Build Status](https://travis-ci.org/caseycs/php-bi-event-collector.svg?branch=master)](https://travis-ci.org/caseycs/php-bi-event-collector)
 
 Simple interface to store PHP application events. Multiple storages support. 
 
