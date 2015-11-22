@@ -48,7 +48,7 @@ $password = '';
 $pdo = new PDO($dsn, $user, $password);
 $pdo ->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$storage = new PDOStorage($Pdo, 'events');
+$storage = new PDOStorage($pdo, 'events');
 $event = new SimpleEvent('user', 1, 'write','post', 5);
 $storage->store($event);
 ```
