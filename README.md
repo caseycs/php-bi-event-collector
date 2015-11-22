@@ -10,7 +10,7 @@ Simple interface to store PHP application events. Multiple storages support.
 
 ## Usage example
 
-### FileJsonStorage
+#### FileJsonStorage
 
 We append events in file since it's very fast, an then we assume that `events.json` will be parsed and events will be
 persisted in some storage.
@@ -21,7 +21,7 @@ $event = new SimpleEvent('user', 1, 'write','post', 5);
 $storage->store($event);
 ```
 
-### PDOStorage
+#### PDOStorage
 
 For the project without high load will be a great solution.
 
